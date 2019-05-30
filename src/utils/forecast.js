@@ -9,9 +9,10 @@ const forecast = (latitude, longitude, callback)=> {
             callback(body.error, undefined)
         }else {
             callback(undefined,{
-                summary: body.daily.data[0].summary,
+                summary: body.daily.summary,
                 temperature: body.currently.temperature,
-                precipProbility: body.currently.precipProbability
+                temperatureHigh: body.daily.data[0].temperatureHigh,
+                temperatureLow: body.daily.data[0].temperatureLow
             })
         }
     })
